@@ -74,7 +74,7 @@ export default async function HomePage() {
             <Button asChild size="xl" variant="gold">
               <Link href="/books/the-eight-gate">Read Book One</Link>
             </Button>
-            <Button asChild size="xl" variant="outline" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+            <Button asChild size="xl" variant="outline" className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white">
               <Link href="/books/princess-neferet">Read Book Two</Link>
             </Button>
             <Button asChild size="xl" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
