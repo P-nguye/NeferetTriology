@@ -1,0 +1,138 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-sand: var(--sand);
+  --color-sand-dark: var(--sand-dark);
+  --color-papyrus: var(--papyrus);
+  --color-indigo-deep: var(--indigo-deep);
+  --color-indigo-mid: var(--indigo-mid);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+/* Egyptian-inspired light theme */
+:root {
+  --radius: 0.5rem;
+
+  /* Core Shadcn tokens — warm sand palette */
+  --background: oklch(0.97 0.018 80);        /* warm sand white */
+  --foreground: oklch(0.18 0.025 50);        /* deep brown-black */
+  --card: oklch(0.98 0.012 75);              /* cream card */
+  --card-foreground: oklch(0.18 0.025 50);
+  --popover: oklch(0.98 0.012 75);
+  --popover-foreground: oklch(0.18 0.025 50);
+  --primary: oklch(0.58 0.14 68);            /* Egyptian gold */
+  --primary-foreground: oklch(0.12 0.02 50); /* dark on gold */
+  --secondary: oklch(0.92 0.025 80);         /* light sand */
+  --secondary-foreground: oklch(0.25 0.03 50);
+  --muted: oklch(0.93 0.02 78);
+  --muted-foreground: oklch(0.48 0.03 60);
+  --accent: oklch(0.35 0.12 270);            /* deep lapis indigo */
+  --accent-foreground: oklch(0.97 0.01 270);
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.87 0.025 78);
+  --input: oklch(0.87 0.025 78);
+  --ring: oklch(0.58 0.14 68);
+
+  /* Custom Egyptian palette */
+  --gold: oklch(0.58 0.14 68);
+  --gold-light: oklch(0.78 0.12 75);
+  --sand: oklch(0.94 0.03 80);
+  --sand-dark: oklch(0.86 0.04 75);
+  --papyrus: oklch(0.97 0.018 80);
+  --indigo-deep: oklch(0.28 0.12 265);
+  --indigo-mid: oklch(0.42 0.14 265);
+}
+
+/* Dark mode — desert night palette */
+.dark {
+  --background: oklch(0.12 0.02 260);       /* deep midnight indigo */
+  --foreground: oklch(0.94 0.02 78);        /* warm off-white */
+  --card: oklch(0.16 0.025 258);
+  --card-foreground: oklch(0.94 0.02 78);
+  --popover: oklch(0.16 0.025 258);
+  --popover-foreground: oklch(0.94 0.02 78);
+  --primary: oklch(0.72 0.14 72);           /* brighter gold in dark */
+  --primary-foreground: oklch(0.12 0.02 50);
+  --secondary: oklch(0.22 0.03 258);
+  --secondary-foreground: oklch(0.88 0.02 78);
+  --muted: oklch(0.20 0.02 260);
+  --muted-foreground: oklch(0.62 0.03 70);
+  --accent: oklch(0.52 0.14 270);
+  --accent-foreground: oklch(0.97 0.01 270);
+  --destructive: oklch(0.60 0.22 25);
+  --border: oklch(0.26 0.03 260);
+  --input: oklch(0.26 0.03 260);
+  --ring: oklch(0.72 0.14 72);
+
+  --gold: oklch(0.72 0.14 72);
+  --gold-light: oklch(0.82 0.10 75);
+  --sand: oklch(0.22 0.025 260);
+  --sand-dark: oklch(0.18 0.02 260);
+  --papyrus: oklch(0.12 0.02 260);
+  --indigo-deep: oklch(0.42 0.14 265);
+  --indigo-mid: oklch(0.55 0.15 265);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* Reading typography — serif body for chapters */
+.prose-chapter {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  color: var(--foreground);
+}
+
+.prose-chapter p {
+  margin-bottom: 1.5rem;
+}
+
+/* Decorative divider for Egyptian aesthetic */
+.divider-egypt {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+
+.divider-egypt::before,
+.divider-egypt::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
