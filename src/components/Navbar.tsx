@@ -21,6 +21,7 @@ const navLinks = [
   { href: "/wallpapers", label: "Wallpapers" },
   { href: "/animation", label: "Animation" },
   { href: "/collaboration", label: "Collaboration" },
+  { href: "/downloads", label: "Downloads" },
   { href: "/author", label: "Author" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
