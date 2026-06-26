@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { NewsletterSignup } from "@/components/NewsletterSignup"
 
 export const metadata: Metadata = {
   title: "Author",
@@ -125,16 +124,6 @@ export default function AuthorPage() {
           ))}
         </div>
 
-        {/* Newsletter */}
-        <div
-          className="mt-16 rounded-2xl p-8 sm:p-10"
-          style={{
-            background: "oklch(0.10 0.02 262)",
-            border: "1px solid oklch(0.22 0.03 260)",
-          }}
-        >
-          <NewsletterSignup variant="full" />
-        </div>
       </div>
     </div>
   )
