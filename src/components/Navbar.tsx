@@ -19,6 +19,7 @@ const navLinks = [
   { href: "/characters", label: "Characters" },
   { href: "/world", label: "World of Neferet" },
   { href: "/wallpapers", label: "Wallpapers" },
+  { href: "/audio", label: "Audio" },
   { href: "/animation", label: "Animation" },
   { href: "/collaboration", label: "Collaboration" },
   { href: "/downloads", label: "Downloads" },

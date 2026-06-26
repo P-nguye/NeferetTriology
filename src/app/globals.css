@@ -220,6 +220,58 @@ body {
   color: oklch(0.72 0.12 72);
 }
 
+/* ─── Audio player range input ───────────────────────────────────────── */
+.audio-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.audio-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: oklch(0.78 0.13 72);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 6px oklch(0.58 0.14 68 / 0.55);
+  transition: transform 0.15s ease;
+}
+
+.audio-range::-webkit-slider-thumb:hover {
+  transform: scale(1.25);
+}
+
+.audio-range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: oklch(0.78 0.13 72);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 6px oklch(0.58 0.14 68 / 0.55);
+}
+
+.audio-range:focus-visible {
+  outline: 2px solid oklch(0.58 0.14 68 / 0.55);
+  outline-offset: 3px;
+  border-radius: 9999px;
+}
+
+/* Play button hover lift */
+.audio-play-btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.audio-play-btn:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
 /* ─── Decorative divider for Egyptian aesthetic ─────────────────────── */
 .divider-egypt {
   display: flex;
