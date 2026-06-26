@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { NewsletterSignup } from "@/components/NewsletterSignup"
 import { ContinueReadingButton } from "@/components/ContinueReadingButton"
 import { getBooks } from "@/lib/data"
 import { Scroll, Star, Clock } from "lucide-react"
@@ -53,7 +52,7 @@ export default async function HomePage() {
               <Link href="/books/princess-neferet">Read Book Two</Link>
             </Button>
             <Button asChild size="xl" variant="ghost" className="text-white/80 hover:text-white hover:bg-white/10">
-              <Link href="#newsletter">Join Email List</Link>
+              <Link href="/contact">Join Email List</Link>
             </Button>
           </div>
           <div className="mt-8">
@@ -200,19 +199,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── Newsletter ── */}
-      <section
-        id="newsletter"
-        className="py-20"
-        style={{
-          background: "oklch(0.10 0.02 262)",
-          borderTop: "1px solid oklch(0.22 0.03 260)",
-        }}
-      >
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <NewsletterSignup variant="full" />
-        </div>
-      </section>
     </div>
   )
 }

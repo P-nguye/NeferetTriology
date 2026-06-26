@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import { NewsletterSignup } from "@/components/NewsletterSignup"
 import { Film, Palette, Clapperboard } from "lucide-react"
 
 export const metadata: Metadata = {
@@ -148,37 +147,6 @@ export default function AnimationPage() {
           ))}
         </div>
 
-        {/* Newsletter panel */}
-        <div
-          className="rounded-2xl p-8 sm:p-10 text-center"
-          style={{
-            background: "oklch(0.10 0.02 262)",
-            border: "1px solid oklch(0.22 0.03 260)",
-          }}
-        >
-          <p
-            className="text-xs uppercase tracking-[0.4em] mb-3"
-            style={{ color: "oklch(0.58 0.14 68)", fontFamily: "var(--font-display)" }}
-          >
-            Be the First to Know
-          </p>
-          <h2
-            className="text-2xl font-semibold mb-2"
-            style={{
-              fontFamily: "var(--font-display)",
-              color: "oklch(0.92 0.025 75)",
-            }}
-          >
-            Stay Inside the Story
-          </h2>
-          <p
-            className="text-sm mb-7 max-w-md mx-auto"
-            style={{ color: "oklch(0.55 0.025 70)", fontFamily: "Georgia, serif" }}
-          >
-            Join the Neferet Chronicle to receive updates the moment new animation content is released.
-          </p>
-          <NewsletterSignup variant="compact" />
-        </div>
       </div>
     </div>
   )

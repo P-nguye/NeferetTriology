@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { NewsletterSignup } from "@/components/NewsletterSignup"
 import { getBooks } from "@/lib/data"
 import type { Book } from "@/lib/database.types"
 
@@ -176,16 +175,6 @@ export default async function BooksPage() {
           ))}
         </div>
 
-        {/* Newsletter */}
-        <div
-          className="rounded-2xl p-8 sm:p-12"
-          style={{
-            background: "oklch(0.10 0.02 262)",
-            border: "1px solid oklch(0.22 0.03 260)",
-          }}
-        >
-          <NewsletterSignup variant="full" />
-        </div>
       </div>
     </div>
   )
