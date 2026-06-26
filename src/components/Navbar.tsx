@@ -20,6 +20,7 @@ const navLinks = [
   { href: "/world", label: "World of Neferet" },
   { href: "/wallpapers", label: "Wallpapers" },
   { href: "/animation", label: "Animation" },
+  { href: "/collaboration", label: "Collaboration" },
   { href: "/author", label: "Author" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
