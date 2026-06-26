@@ -36,6 +36,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: Georgia, "Times New Roman", serif;
+  --font-display: var(--font-cinzel), "Cinzel", Georgia, serif;
 }
 
 /* Egyptian-inspired light theme */
@@ -121,7 +122,86 @@ body {
   margin-bottom: 1.5rem;
 }
 
-/* Decorative divider for Egyptian aesthetic */
+.prose-chapter h1,
+.prose-chapter h2,
+.prose-chapter h3 {
+  font-family: var(--font-display), Georgia, serif;
+  color: var(--foreground);
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+}
+
+.prose-chapter a {
+  color: var(--gold);
+  text-underline-offset: 3px;
+}
+
+.prose-chapter blockquote {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.25rem;
+  margin-left: 0;
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.prose-chapter strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* ─── Character Directory & Wallpaper Gallery ─────────────────────────── */
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.95) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes portrait-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-modal-in {
+  animation: modal-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.animate-overlay-in {
+  animation: overlay-in 0.2s ease both;
+}
+
+/* Era-specific portrait gradient backgrounds */
+.portrait-indiana {
+  background: linear-gradient(145deg,
+    oklch(0.10 0.04 265) 0%,
+    oklch(0.20 0.10 260) 45%,
+    oklch(0.14 0.06 268) 100%
+  );
+}
+
+.portrait-egypt {
+  background: linear-gradient(145deg,
+    oklch(0.18 0.05 55) 0%,
+    oklch(0.30 0.09 65) 45%,
+    oklch(0.20 0.06 50) 100%
+  );
+}
+
+/* Gold glow hover for cards */
+.card-glow-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.card-glow-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px oklch(0.58 0.14 68 / 0.25), 0 2px 8px oklch(0 0 0 / 0.4);
+  border-color: oklch(0.58 0.14 68 / 0.55);
+}
+
+/* ─── Decorative divider for Egyptian aesthetic ─────────────────────── */
 .divider-egypt {
   display: flex;
   align-items: center;

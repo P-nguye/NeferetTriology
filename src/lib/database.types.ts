@@ -1,5 +1,6 @@
 export type BookStatus = "published" | "coming_soon"
-export type CharacterRole = "main" | "royal_family"
+export type CharacterRole = "main" | "royal_family" | "supporting"
+export type CharacterEra = "indiana" | "egypt"
 
 export interface Book {
   id: string
@@ -26,6 +27,7 @@ export interface Character {
   name: string
   age: string | null
   role: CharacterRole
+  era?: CharacterEra | null
   description: string | null
   personality: string | null
   story_role: string | null

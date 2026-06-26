@@ -1,18 +1,25 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { NewsletterSignup } from "@/components/NewsletterSignup"
 import { getBooks } from "@/lib/data"
+import type { Book } from "@/lib/database.types"
 
 export const metadata: Metadata = {
   title: "Books",
   description: "Read The Eight Gate, Princess Neferet, and The Journey Home — the complete Neferet Trilogy.",
 }
 
+const BOOK_GRADIENTS = [
+  "linear-gradient(145deg, oklch(0.10 0.06 265) 0%, oklch(0.20 0.10 265) 45%, oklch(0.12 0.04 260) 100%)",
+  "linear-gradient(145deg, oklch(0.14 0.06 55) 0%, oklch(0.26 0.10 65) 45%, oklch(0.16 0.05 50) 100%)",
+  "linear-gradient(145deg, oklch(0.12 0.04 260) 0%, oklch(0.22 0.08 58) 45%, oklch(0.14 0.04 265) 100%)",
+]
+
+const BOOK_GLYPHS = ["◈", "𓂀", "𓃭"]
+
 export default async function BooksPage() {
-  let books: Awaited<ReturnType<typeof getBooks>> = []
+  let books: Book[] = []
   try {
     books = await getBooks()
   } catch {
@@ -28,45 +35,157 @@ export default async function BooksPage() {
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="text-center mb-14">
-        <div className="divider-egypt mb-4">
-          <span className="text-xs uppercase tracking-widest text-muted-foreground px-3">The Neferet Trilogy</span>
+    <div className="dark" style={{ background: "oklch(0.08 0.015 262)", minHeight: "100vh" }}>
+      {/* Hero banner */}
+      <div
+        className="relative overflow-hidden"
+        style={{
+          background: "linear-gradient(180deg, oklch(0.06 0.02 265) 0%, oklch(0.10 0.025 260) 60%, oklch(0.08 0.015 262) 100%)",
+          borderBottom: "1px solid oklch(0.58 0.14 68 / 0.15)",
+        }}
+      >
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[50vw] h-36 pointer-events-none"
+          style={{
+            background: "radial-gradient(ellipse, oklch(0.58 0.14 68 / 0.08) 0%, transparent 70%)",
+            filter: "blur(20px)",
+          }}
+          aria-hidden
+        />
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 text-center">
+          <p
+            className="text-xs uppercase tracking-[0.5em] mb-5"
+            style={{ color: "oklch(0.58 0.14 68)" }}
+          >
+            𓂀 &nbsp; The Neferet Trilogy &nbsp; 𓂀
+          </p>
+          <h1
+            className="text-5xl sm:text-6xl font-bold mb-4"
+            style={{
+              fontFamily: "var(--font-display)",
+              color: "oklch(0.94 0.025 75)",
+              textShadow: "0 0 50px oklch(0.58 0.14 68 / 0.18)",
+            }}
+          >
+            The Books
+          </h1>
+          <p
+            className="max-w-lg mx-auto text-base leading-relaxed"
+            style={{ color: "oklch(0.58 0.03 70)", fontFamily: "Georgia, serif", fontStyle: "italic" }}
+          >
+            A three-part epic spanning two worlds and four thousand years of history, myth, and love.
+          </p>
         </div>
-        <h1 className="font-serif text-4xl sm:text-5xl font-bold text-foreground mb-4">The Books</h1>
-        <p className="text-muted-foreground max-w-xl mx-auto">
-          A three-part epic spanning two worlds and four thousand years of history, myth, and love.
-        </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-        {books.map((book, i) => (
-          <Card key={book.slug} className="flex flex-col hover:shadow-lg transition-shadow">
-            <div className="bg-gradient-to-br from-[oklch(0.28_0.06_68)] to-[oklch(0.22_0.04_260)] rounded-t-xl p-8 flex flex-col gap-2 min-h-[140px] justify-end">
-              <span className="text-xs uppercase tracking-widest text-white/40">Book {i + 1}</span>
-              <h2 className="font-serif text-2xl font-bold text-white leading-tight">{book.title}</h2>
-              {book.status === "coming_soon" && (
-                <Badge variant="secondary" className="w-fit text-xs">Coming Soon</Badge>
-              )}
+      {/* Book cards */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-7 mb-20">
+          {books.map((book, i) => (
+            <div
+              key={book.slug}
+              className="card-glow-hover flex flex-col overflow-hidden rounded-xl"
+              style={{
+                background: "oklch(0.11 0.025 260)",
+                border: "1px solid oklch(0.20 0.03 260)",
+              }}
+            >
+              {/* Banner */}
+              <div
+                className="relative flex flex-col justify-end gap-2 px-7 pt-7 pb-6 min-h-[170px] overflow-hidden"
+                style={{ background: BOOK_GRADIENTS[i] }}
+              >
+                {/* Big glyph watermark */}
+                <span
+                  className="absolute right-5 top-4 select-none pointer-events-none"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "5.5rem",
+                    color: "oklch(0.80 0.10 72)",
+                    opacity: 0.12,
+                    lineHeight: 1,
+                  }}
+                  aria-hidden
+                >
+                  {BOOK_GLYPHS[i]}
+                </span>
+
+                <p
+                  className="text-xs uppercase tracking-[0.3em]"
+                  style={{ color: "oklch(0.58 0.10 70)" }}
+                >
+                  Book {i + 1}
+                </p>
+                <h2
+                  className="text-2xl font-bold leading-tight"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    color: "oklch(0.94 0.025 75)",
+                  }}
+                >
+                  {book.title}
+                </h2>
+                {book.status === "coming_soon" && (
+                  <span
+                    className="w-fit text-xs px-2.5 py-1 rounded-full"
+                    style={{
+                      background: "oklch(0.20 0.04 260 / 0.7)",
+                      border: "1px solid oklch(0.35 0.04 260)",
+                      color: "oklch(0.60 0.04 70)",
+                    }}
+                  >
+                    Coming Soon
+                  </span>
+                )}
+              </div>
+
+              {/* Description */}
+              <div className="flex-1 px-6 py-5">
+                <p
+                  className="text-sm leading-[1.75]"
+                  style={{ color: "oklch(0.58 0.025 70)", fontFamily: "Georgia, serif" }}
+                >
+                  {book.short_description}
+                </p>
+              </div>
+
+              {/* CTA */}
+              <div className="px-6 pb-6">
+                {book.status === "coming_soon" ? (
+                  <button
+                    disabled
+                    className="w-full py-2.5 rounded-lg text-sm font-medium"
+                    style={{
+                      background: "oklch(0.16 0.02 260)",
+                      border: "1px solid oklch(0.26 0.03 260)",
+                      color: "oklch(0.38 0.025 260)",
+                      cursor: "not-allowed",
+                      fontFamily: "var(--font-display)",
+                      letterSpacing: "0.06em",
+                    }}
+                  >
+                    Coming Soon
+                  </button>
+                ) : (
+                  <Button asChild variant="gold" className="w-full">
+                    <Link href={`/books/${book.slug}`}>Read Book {i + 1}</Link>
+                  </Button>
+                )}
+              </div>
             </div>
-            <CardHeader className="pb-2">
-              <CardDescription className="text-sm leading-relaxed">{book.short_description}</CardDescription>
-            </CardHeader>
-            <CardFooter className="mt-auto">
-              {book.status === "coming_soon" ? (
-                <Button variant="outline" disabled className="w-full">Coming Soon</Button>
-              ) : (
-                <Button asChild variant="gold" className="w-full">
-                  <Link href={`/books/${book.slug}`}>Read Book {i + 1}</Link>
-                </Button>
-              )}
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="border-t border-border pt-16">
-        <NewsletterSignup variant="full" />
+        {/* Newsletter */}
+        <div
+          className="rounded-2xl p-8 sm:p-12"
+          style={{
+            background: "oklch(0.10 0.02 262)",
+            border: "1px solid oklch(0.22 0.03 260)",
+          }}
+        >
+          <NewsletterSignup variant="full" />
+        </div>
       </div>
     </div>
   )
