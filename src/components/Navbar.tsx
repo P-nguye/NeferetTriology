@@ -18,6 +18,7 @@ const navLinks = [
   { href: "/books", label: "Books" },
   { href: "/characters", label: "Characters" },
   { href: "/world", label: "World of Neferet" },
+  { href: "/wallpapers", label: "Wallpapers" },
   { href: "/animation", label: "Animation" },
   { href: "/author", label: "Author" },
   { href: "/blog", label: "Blog" },
