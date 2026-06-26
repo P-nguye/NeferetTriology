@@ -139,17 +139,11 @@ function DropdownPanel({
                   active && "nav-dropdown-item--active"
                 )}
               >
-                <span
-                  className="flex items-center gap-2 text-sm font-medium whitespace-nowrap"
-                  style={{
-                    color: active
-                      ? "oklch(0.72 0.12 72)"
-                      : "oklch(0.86 0.018 75)",
-                  }}
-                >
+                <span className="flex items-center gap-1.5 text-sm font-medium whitespace-nowrap">
                   {active && (
                     <span
                       aria-hidden
+                      className="shrink-0"
                       style={{ color: "oklch(0.58 0.14 68)", fontSize: "0.6rem" }}
                     >
                       ◈
